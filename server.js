@@ -1,33 +1,36 @@
-// *********************************************************************************
-// Server.js - This file is the initial starting point for the Node/Express server.
-// *********************************************************************************
-
 // Dependencies
-// =============================================================
-var express = require("express");
-var bodyParser = require("body-parser");
+const express = require('express');
+const methodOverride = require('method-override');
+const bodyParser = require('body-parser');
+const handlebarsEx = require('express-handlebars');
 
 // Sets up the Express App
-// =============================================================
-var app = express();
-var PORT = process.env.PORT || 8080;
+const app = express();
+const PORT = process.env.PORT || 3000;
 
-// Sets up the Express app to handle data parsing
 
-// parse application/x-www-form-urlencoded
+
+// data parse
+
 app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
 // Static directory
-app.use(express.static("app/public"));
+app.use(express.static(__dirname + '/public'));
+
+//Handlebars
+app.engine("handlebars", handlebarsEx({defaultLayout: "main"}));
+app.set("view engine", "handlebars")
 
 // Routes
-// =============================================================
-require("./app/routes/api-routes.js")(app);
+require("./controllers/burgers_controller.js")(app);
+
+
+//app.use(routes);
 
 // Starts the server to begin listening
-// =============================================================
+
 app.listen(PORT, function() {
   console.log("App listening on PORT " + PORT);
 });
