@@ -2,7 +2,7 @@
 const express = require('express');
 const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
-const handlebarsEx = require('express-handlebars');
+var exphbs = require("express-handlebars");
 
 // Sets up the Express App
 const app = express();
@@ -27,7 +27,7 @@ app.set("view engine", "handlebars")
 require("./controllers/burgers_controller.js")(app);
 
 
-//app.use(routes);
+app.use(routes);
 
 // Starts the server to begin listening
 
