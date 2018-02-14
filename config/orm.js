@@ -1,4 +1,4 @@
-var connection = ("../config/connection.js");
+var connection = require("./connection.js");
 
 //selectAll()
 //insertOne()
