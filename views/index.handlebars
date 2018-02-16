@@ -10,9 +10,9 @@
             <p class="cool-font">What's On The Menu</p>
 
 <ul>
-  {{#each burgers}}
+  {{#each burger_name}}
     {{#unless devoured}}
-      {{> burgers/burger-block eaten=true}}
+      {{> burger_name/burger-block eaten=true}}
     {{/unless}}
   {{/each}}
 </ul>
@@ -20,9 +20,9 @@
 <h2>Burgers that have been devoured</h2>
 
 <ul>
-  {{#each burgers}}
+  {{#each burger_name}}
     {{#if devoured}}
-      {{> burgers/burger-block eaten=false}}
+      {{> burger_name/burger-block eaten=false}}
     {{/if}}
   {{/each}}
 </ul>
