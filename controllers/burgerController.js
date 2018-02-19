@@ -1,8 +1,7 @@
-var express = require("express");
+const express = require('express');
+const router = express.Router();
 
-var router = express.Router();
-
-// Import the model to use its database functions.
+// Import the model (pizza.js) to use its database functions.
 var burger = require("../models/burger.js");
 
 
@@ -17,7 +16,7 @@ router.get("/", function(req, res) {
     });
   });
 
-  router.post("/api/burgers", function(req, res) {
+  router.post("/api/burger", function(req, res) {
     burger.create([
       "burger_name", "devoured"
     ], [
@@ -27,7 +26,7 @@ router.get("/", function(req, res) {
     });
   });
 
-  router.put("/api/burgers/:id", function(req, res) {
+  router.put("/api/burger/:id", function(req, res) {
     var condition = "id = " + req.params.id;
   
     console.log("condition", condition);
@@ -44,7 +43,7 @@ router.get("/", function(req, res) {
     });
   });
 
-  router.delete("/api/burgers/:id", function(req, res) {
+  router.delete("/api/burger/:id", function(req, res) {
     var condition = "id = " + req.params.id;
   
     burger.delete(condition, function(result) {
