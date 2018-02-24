@@ -1,9 +1,10 @@
 # BurgerApp - Node and Express Handlebars
 
-## Overview
+## Heroku Link
 
 https://preston-burger-app.herokuapp.com/
 
+## Overview
 BurgerApp is a simple burger application that logs new menu items. Whenever a user submits a burger's name, your app will display the burger on the left side of the page -- waiting to be devoured. Your app will store every burger in a database, whether devoured or not.
 
 This burger logger is built  with MySQL, Node, Express, Handlebars and a homemade ORM.
